@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
-import { getDatabase, ref, set, get, child, onValue } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js";
+import { getDatabase, ref, set, get, child, onValue, update } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js";
 
 const firebaseConfig = {
 databaseURL: "https://openbox-db-default-rtdb.asia-southeast1.firebasedatabase.app/",
@@ -46,8 +46,9 @@ function appendPostCard(id, visibility, subject, content){
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.id = `checkbox-${id}`;
+        checkbox.onclick = () => foo(checkbox);
 
-        if(visibility == "true"){
+        if(visibility){
             checkbox.checked = true;
         }
         // Create the label for the checkbox
@@ -84,4 +85,13 @@ function appendPostCard(id, visibility, subject, content){
         let flexBox = document.querySelector(".flex-box")
         flexBox.appendChild(postCard);
 
+}
+
+function foo(div){
+    let id = div.id.split("-")[1];
+    let updates = {}
+    updates[`posts/${id}/visible`] = div.checked;
+    update(ref(database), updates);
+
+    console.log("updated")
 }
