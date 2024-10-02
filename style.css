@@ -1,0 +1,123 @@
+.lato-regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.lato-bold {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.lato-regular-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+*{
+    padding : 0;
+    margin : 0;
+    font-family: lato;
+
+}
+
+#bg{
+    position: fixed;
+    height: 100vh;
+    width : 100vw;
+}
+
+input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+
+label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 200px;
+	height: 100px;
+	background: red;
+	display: block;
+	border-radius: 100px;
+	position: relative;
+}
+
+label:after {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 90px;
+	height: 90px;
+	background: #fff;
+	border-radius: 90px;
+	transition: 0.3s;
+}
+
+input:checked + label {
+	background: rgb(94, 169, 244);
+}
+
+input:checked + label:after {
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+}
+
+label:active:after {
+	width: 130px;
+}
+
+label{
+    transform: scale(0.2);
+}
+
+.flex-box{
+    display: flex;
+    flex-direction : column;
+    align-items: center;
+    padding-top : 10vh;
+    gap : 1em;
+}
+
+.post-card{
+    display : flex;
+    flex-direction : row; 
+    background-color: rgba(255, 255, 255, .7);  
+    backdrop-filter: blur(12px);
+    height: auto;
+    width : 60vw;
+    border-radius: 20px;
+    border : solid 1px black;
+
+    color : #1E2A5E;
+}
+.post-card  img{
+    height: 40px;
+    width : 40px;
+}
+
+.visibility{
+    flex-direction: column;
+    justify-content: center;
+    align-items : center;
+}
+
+.visibility img{
+    position: relative;
+    top : 40%;
+    left : 50%;
+    transform: translate(-50%, -50%);
+}
+
+.post-content{
+    display : flex;
+    flex-direction : column;
+    justify-content: center;
+}
+.post-content h3{
+    transform: translateY(-50%);
+}
